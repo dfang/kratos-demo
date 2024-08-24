@@ -7,6 +7,7 @@ toolchain go1.22.6
 require (
 	github.com/go-kratos/kratos/v2 v2.8.0
 	github.com/google/wire v0.6.0
+	github.com/tx7do/kratos-swagger-ui v0.0.0-20240514132937-bdf9b35be16c
 	go.uber.org/automaxprocs v1.5.1
 	google.golang.org/genproto/googleapis/api v0.0.0-20240528184218-531527333157
 	google.golang.org/grpc v1.65.0
@@ -23,6 +24,8 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
+	github.com/swaggest/swgui v1.7.4 // indirect
+	github.com/vearutop/statigz v1.4.0 // indirect
 	go.opentelemetry.io/otel v1.24.0 // indirect
 	go.opentelemetry.io/otel/metric v1.24.0 // indirect
 	go.opentelemetry.io/otel/trace v1.24.0 // indirect

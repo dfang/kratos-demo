@@ -1,7 +1,7 @@
 package server
 
 import (
-	v1 "demo/api/helloworld/v1"
+	v1 "demo/api/gen/go/helloworld/v1"
 	"demo/internal/conf"
 	"demo/internal/service"
 

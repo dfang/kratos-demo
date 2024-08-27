@@ -19,7 +19,7 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-const OperationGreeterSayHello = "/helloworld.v1.Greeter/SayHello"
+const OperationGreeterSayHello = "/api.helloworld.v1.Greeter/SayHello"
 
 type GreeterHTTPServer interface {
 	// SayHello Sends a greeting

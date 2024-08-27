@@ -24,6 +24,7 @@ init:
 	go install github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2@latest
 	go install github.com/google/gnostic/cmd/protoc-gen-openapi@latest
 	go install github.com/google/wire/cmd/wire@latest
+	go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
 
 .PHONY: config
 # generate internal proto
@@ -36,13 +37,15 @@ config:
 .PHONY: api
 # generate api proto
 api:
-	protoc --proto_path=./api/protos/ \
-	       --proto_path=./third_party \
- 	       --go_out=paths=source_relative:./api/gen/go \
- 	       --go-http_out=paths=source_relative:./api/gen/go \
- 	       --go-grpc_out=paths=source_relative:./api/gen/go \
-	       --openapi_out=fq_schema_naming=true,default_response=false:. \
-	       $(API_PROTO_FILES)
+	# protoc --proto_path=./api/protos/ \
+	#        --proto_path=./third_party \
+ 	#        --go_out=paths=source_relative:./api/gen/go \
+ 	#        --go-http_out=paths=source_relative:./api/gen/go \
+ 	#        --go-grpc_out=paths=source_relative:./api/gen/go \
+	#        --openapi_out=fq_schema_naming=true,default_response=false:. \
+	#        $(API_PROTO_FILES)
+	@cd api && \
+	buf generate
 
 .PHONY: build
 # build

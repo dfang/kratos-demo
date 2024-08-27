@@ -1,0 +1,25 @@
+# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
+version: v2
+
+modules:
+  - path: protos
+
+# build:
+#   excludes: [third_party]
+
+deps:
+  - 'buf.build/googleapis/googleapis'
+  - 'buf.build/envoyproxy/protoc-gen-validate'
+  - 'buf.build/kratos/apis'
+  - 'buf.build/gnostic/gnostic'
+  - 'buf.build/gogo/protobuf'
+  - 'buf.build/tx7do/pagination'
+
+
+lint:
+  use:
+    - DEFAULT
+
+breaking:
+  use:
+    - FILE

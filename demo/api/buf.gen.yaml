@@ -1,0 +1,32 @@
+version: v1
+
+managed:
+  enabled: true
+  optimize_for: SPEED
+
+  # go_package_prefix:
+  #   default: demo/api/gen/go
+  #   except:
+  #     - 'buf.build/googleapis/googleapis'
+  #     - 'buf.build/envoyproxy/protoc-gen-validate'
+  #     - 'buf.build/kratos/apis'
+  #     - 'buf.build/gnostic/gnostic'
+  #     - 'buf.build/gogo/protobuf'
+  #     - 'buf.build/tx7do/pagination'
+
+
+plugins:
+  - plugin: go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  
+  - plugin: go-grpc
+    out: gen/go
+    opt:
+      - paths=source_relative
+
+  - plugin: go-http
+    out: gen/go
+    opt:
+      - paths=source_relative

@@ -51,7 +51,7 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 
 	nhttp.Handle("/static/", nhttp.StripPrefix("/static/", nhttp.FileServer(nhttp.FS(demo.OpenApiFile))))
 	swaggerHandler := swaggerUI.New(
-		"Petstore",
+		"Kratos",
 		// "https://petstore3.swagger.io/api/v3/openapi.json",
 		"/static/openapi.yaml",
 		"/docs/",

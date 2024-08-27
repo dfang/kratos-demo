@@ -5,29 +5,28 @@ package api.user.v1;
 import "gnostic/openapi/v3/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-
 import "pagination/v1/pagination.proto";
 
-option go_package = "demo/api/user/v1;v1";
+option go_package = "demo/api/gen/go/user/v1;v1";
 option java_multiple_files = true;
 option java_package = "api.user.v1";
 
 // 部门管理服务
 service OrganizationService {
   // 查询部门列表
-  rpc ListOrganization (pagination.PagingRequest) returns (ListOrganizationResponse) {}
+  rpc ListOrganization(pagination.PagingRequest) returns (ListOrganizationResponse) {}
 
   // 查询部门详情
-  rpc GetOrganization (GetOrganizationRequest) returns (Organization) {}
+  rpc GetOrganization(GetOrganizationRequest) returns (Organization) {}
 
   // 创建部门
-  rpc CreateOrganization (CreateOrganizationRequest) returns (google.protobuf.Empty) {}
+  rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty) {}
 
   // 更新部门
-  rpc UpdateOrganization (UpdateOrganizationRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateOrganization(UpdateOrganizationRequest) returns (google.protobuf.Empty) {}
 
   // 删除部门
-  rpc DeleteOrganization (DeleteOrganizationRequest) returns (google.protobuf.Empty) {}
+  rpc DeleteOrganization(DeleteOrganizationRequest) returns (google.protobuf.Empty) {}
 }
 
 // 部门
@@ -39,7 +38,9 @@ message Organization {
   optional string status = 5 [(gnostic.openapi.v3.property) = {
     description: "状态"
     default: {string: "ON"}
-    enum: [{yaml: "ON"}, {yaml: "OFF"}]
+    enum: [
+      {yaml: "ON"},
+      {yaml: "OFF"}]
   }];
   optional string remark = 6;
   repeated Organization children = 7;
@@ -48,6 +49,7 @@ message Organization {
   optional google.protobuf.Timestamp update_time = 31 [json_name = "updateTime"];
   optional google.protobuf.Timestamp delete_time = 32 [json_name = "deleteTime"];
 }
+
 // 部门列表 - 答复
 message ListOrganizationResponse {
   repeated Organization items = 1;
